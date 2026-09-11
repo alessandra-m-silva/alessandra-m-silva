@@ -22,9 +22,9 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      # 1. Clona o repositório no runner
+      # 1. Clona o repositório (atualizado para v4.2.2 ou superior)
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       # 2. Gera as animações SVG com tema customizado Roxo Neon
       - name: Generate github-contribution-grid-snake.svg
@@ -35,9 +35,9 @@ jobs:
             dist/github-contribution-grid-snake.svg?color_snake=#7B2CBF&color_dots=#ebedf0,#e0aaff,#c77dff,#9d4edd,#7b2cbf
             dist/github-contribution-grid-snake-dark.svg?color_snake=#9D4EDD&color_dots=#161b22,#3c096c,#5a189a,#7b2cbf,#9d4edd
 
-      # 3. Envia as imagens geradas para a branch 'output'
+      # 3. Envia as imagens geradas para a branch 'output' (atualizado para v4)
       - name: Push Snake SVG to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+        uses: crazy-max/ghaction-github-pages@v4.1.0
         with:
           target_branch: output
           build_dir: dist
